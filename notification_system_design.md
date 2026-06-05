@@ -48,6 +48,18 @@
 * **Choice:** MySQL
 * **Reasoning:** Notifications require structured relationships between users and alert data. MySQL handles these links efficiently with ACID compliance to ensure "read" statuses are saved reliably.
 
+# Stage 2: Database Selection & Schema
+
+## 1. Database Selection
+* **Choice:** MySQL (Relational Database)
+* **Reasoning:** Since notifications are tied to specific users and require data integrity (e.g., ensuring a "read" status updates correctly), a relational database is ideal for handling these structured links and ACID compliance.
+
+## Stage 2: Database Selection & Schema
+
+## 1. Database Selection
+* **Choice:** MySQL
+* **Reasoning:** Notifications require structured relationships between users and alert data. MySQL handles these links efficiently with ACID compliance to ensure "read" statuses are saved reliably.
+
 ## 2. Database Schema
 
 ### Table: users
@@ -64,9 +76,3 @@
 | type | VARCHAR(50) | e.g., 'Placement' |
 | message | TEXT | Not Null |
 | is_read | BOOLEAN | Default: false |
-
-## 3. Testing Results (Postman)
-The API was successfully tested locally. 
-* **Endpoint:** GET `http://localhost:5000/api/v1/notifications`
-* **Status:** 200 OK
-* **Result:** Successfully retrieved the notification list as a JSON object.
