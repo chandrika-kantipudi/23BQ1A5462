@@ -42,3 +42,25 @@
   "success": true,
   "message": "All notifications marked as read."
 }
+# Stage 2: Database Selection & Schema
+
+## 1. Database Selection
+* **Choice:** MySQL
+* **Reasoning:** Notifications require structured relationships between users and alert data. MySQL handles these links efficiently with ACID compliance to ensure "read" statuses are saved reliably.
+
+## 2. Database Schema
+
+### Table: users
+| Column | Type | Constraints |
+| :--- | :--- | :--- |
+| id | INT | Primary Key, Auto-Increment |
+| username | VARCHAR(100) | Not Null |
+
+### Table: notifications
+| Column | Type | Constraints |
+| :--- | :--- | :--- |
+| id | INT | Primary Key, Auto-Increment |
+| user_id | INT | Foreign Key (users.id) |
+| type | VARCHAR(50) | e.g., 'Placement' |
+| message | TEXT | Not Null |
+| is_read | BOOLEAN | Default: false |
