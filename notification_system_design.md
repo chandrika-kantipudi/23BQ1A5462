@@ -64,3 +64,9 @@
 | type | VARCHAR(50) | e.g., 'Placement' |
 | message | TEXT | Not Null |
 | is_read | BOOLEAN | Default: false |
+
+## 3. Testing Results (Postman)
+The API was successfully tested locally. 
+* **Endpoint:** GET `http://localhost:5000/api/v1/notifications`
+* **Status:** 200 OK
+* **Result:** Successfully retrieved the notification list as a JSON object.
